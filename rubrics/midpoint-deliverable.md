@@ -1,4 +1,4 @@
-# Brainstorm Rubric
+# Midpoint Deliverable Rubric
 
 This rubric is intended to help guide expectations and increase transparency. However, it is not necessarily fully exhaustive. Make sure to read the detailed explanation on Canvas, and follow the best practices described in the course book and in class.
 
