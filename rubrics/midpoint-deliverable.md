@@ -19,7 +19,7 @@ Computes (and includes) 5 pieces of _relevant_ information using a function save
 - Intentionally sorts the table in a relevant way (**1 point**)
 - Only displays relevant columns in the table (**1 point**)
 - Displays well formatted column names (**1 point**)
-- Successfully renders the table in the report (**1 point**)
+- Successfully renders the table in the report using an appropriate package (e.g., don't just print out the data frame) (**1 point**)
 - Interprets information the table, honing in on important information (**2 points**)
 
 ## Charts (**30 points**, 10 points each)
@@ -33,14 +33,19 @@ For each chart, you will be evaluated based on the following (remember, each cha
     - Legend for any encodings that are not immediately apparent
 - Interprets information from the chart, honing in on important information (**2 points**)
 
-## Code structure (**7 points**)
+## Code and Report structure (**7 points**)
 Code is broken up appropriately into the described files. 
 - Each file is in the appropriate folder: `scripts/`, except `index.Rmd`, which is in the root (**1 point**)
 - Each file is loaded into the `index.Rmd` file (**1 point**)
 - Only the `index.Rmd` file loads the data (**1 point**)
-- Project uses appropriate packages and logic throughout to produce the report (**2 points**)
-- All unused code is removed (**1 point**)
+- Project uses appropriate packages and logic throughout to produce the report (**1 points**)
+- All unused code is removed. (**1 point**)
 - Comments are used throughout to express purpose of each section (**1 point**)
+
+Report is professionally formatted, including (but not limtted to):
+- Using headers to delineate between sections (**1 point**)
+- Removing any warnings/messages from your script in the report (**1 point**)
+
 
 ## Code clarity (**5 points**)
 To earn full points, you must not have any `lintr()` errors. 
