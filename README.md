@@ -15,6 +15,10 @@ Yet not all music is created equal, and listeners everywhere carefully cater the
 
 Using a subset of the free-to-use Million Song Dataset (MSD) available online, as made available online by the UCI Machine Learning team, Kaggle user Vinay Shanbhag built a [model](https://www.kaggle.com/vinayshanbhag/predict-release-timeframe-from-audio-features) for predicting a song's release year based on features within the music.
 
+Using data collected from the National Endowment of the Arts, the Bureau of Labor Statistics, and the U.S. Bureau of Economic Analysis, online real-estate broker Movoto developed an [interactive map](https://www.spin.com/2014/04/interactive-all-american-music-map-by-genre/) depicting American music tastes by state.
+
+Using data scraped directly off of its own web API, Spotify's team created [Spotify.me](spotify.me) in order to give its users insight as to their listening habits. Leveraging the data they collect from running their product, Spotify also launched Spotify for Brands, which uses data from its users in order to help businesses conduct analyses on consumer behavior and patterns.
+
 
 
 ### What data-driven questions does our project aim to answer?
