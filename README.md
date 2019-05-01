@@ -2,7 +2,7 @@
 
 ![Music banner](./imgs/music.jpg)
 
-## Domain of Interest: An Introduction
+## Music as a Domain: An Introduction
 
 ### Why are we interested in this domain?
 
@@ -28,6 +28,13 @@ Since our project revolves around the idea of "popularity" in the world of music
 From that, we hope to then broaden our scope and answer along the same vein: _How does each of the individual observable characteristics affect a song's popularity?_
 
 Finally, we would like to deviate slightly from the focus on popularity, by evaluating the relationship between different song characteristics that might somehow influence one another. For instance, a question of this nature might be: _How does tempo affect the danceability of a song?_
+
+Branching out from there, of course, there are countless tangential questions that can find answers through analysis of our data. For instance:
+- _By how much does an artist's popularity inflate the popularity of his or her songs?_
+- _Are certain words in song-titles correlated to higher popularity?_
+- _If we were to create our own song, what would be our formula?_
+
+Overall, we hope that the answers to our questions will give us a better idea of **_how_** music appeals to our minds.
 
 ## Data: Origins and Explanations
 
@@ -83,3 +90,5 @@ By using a linear regression analysis, we can use our data to determine **the co
 From looking at all of the scatterplots together, our data will then help us narrow down **which of the characteristics is the main driver behind the song's popularity**. By creating an additional plot and table for a multiple regression analysis of the data, we will be able to confirm the best predictor for song popularity, which would answer our main question.
 
 Then, by using a scatterplot matrix comparing different song characteristics against one another, we can determine the **relationship between variables such as tempo and danceability**. Since almost all of the columns have been listed in continuous numeric terms, the scatterplot matrix would be appropriate for finding most of the relationships possible.
+
+By looking at the data collected from over 130,000 tracks in the past, we might even lay the groundwork for predicting new songs' rise to fame in the future. By looking at the relationships between these seventeen different  song features, we'll be the ones telling you tomorrow, **"I liked New Town Road before it was cool."**
