@@ -14,7 +14,7 @@ Yet not all music is created equal, and listeners everywhere carefully cater the
 _“Music is the shorthand of emotion.”_
  ― Leo Tolstoy
 
-Our group hopes to find the longhand equation.
+
 
 
 **What are other examples of data driven projects related to this domain?**
