@@ -30,9 +30,9 @@ From that, we hope to then broaden our scope and answer along the same vein: **_
 Finally, we would like to deviate slightly from the focus on popularity, by evaluating the relationship between different song characteristics that might somehow influence one another. For instance, a question of this nature might be: **_How does tempo affect the danceability of a song?_**
 
 Branching out from there, of course, there are countless tangential questions that can find answers through analysis of our data. For instance:
-- _By how much does an artist's popularity inflate the popularity of his or her songs?_
-- _Are certain words in song-titles correlated to higher popularity?_
-- _If we were to create our own song, what would be our formula?_
+- **_By how much does an artist's popularity inflate the popularity of his or her songs?_**
+- **_Are certain words in song-titles correlated to higher popularity?_**
+- **_If we were to create our own song, what would be our formula?_**
 
 Overall, we hope that the answers to our questions will give us a better idea of **_how_** music appeals to our minds.
 
