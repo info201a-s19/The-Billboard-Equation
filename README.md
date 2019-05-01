@@ -11,10 +11,6 @@ According to [Dr. Michelle Millis Chapel](https://michellechappel.com/), a forme
 
 Yet not all music is created equal, and listeners everywhere carefully cater their playlists to personal preferences. As passionate Spotify users with a shared love for music, our group hopes to use data and information to better understand how songs distinguish themselves and rise to the top within such a competitive space. Tired of trying to distance ourselves from the "overplayed" and the "overrated", we hope to instead explain the bits and pieces that bring a song to such a status.
 
-_“Music is the shorthand of emotion.”_
- ― Leo Tolstoy
-
-
 
 
 **What are other examples of data driven projects related to this domain?**
