@@ -1,6 +1,6 @@
-# Final Project: Spotiwhy
+# Final Project: The Billboard Equation
 
-![Spotify logo](./imgs/spotify.png)
+![Music banner](./imgs/music.jpg)
 
 ## Domain of Interest: An Introduction
 
