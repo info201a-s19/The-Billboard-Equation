@@ -1,6 +1,6 @@
 # Final Project: Spotiwhy
 
-![Spotify logo](./imgs/spotify_icon.jpg)
+![Spotify logo](./imgs/spotify.png)
 
 ## Domain of Interest: An Introduction
 
