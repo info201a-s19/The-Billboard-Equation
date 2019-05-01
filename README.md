@@ -1,6 +1,6 @@
 # Final Project: Spotiwhy
 
-![Spotify logo](./imgs/AI_Meeting.jpg)
+![Spotify logo](./imgs/spotify_icon.jpg)
 
 ## Domain of Interest: An Introduction
 
@@ -45,36 +45,36 @@ The extended details of Tomigelo's data collection process are listed in his [Gi
 
 ### Who collected our data?
 
-Our data was collected by Tomigelo, a Kaggle user based in Germany. Tomigelo is a gold-level contributor to Kaggle discussion boards, as well as a bronze-medal contributor to kernels and a contender in machine learning competitions.
+Our data was collected by [Tomigelo](https://www.kaggle.com/tomigelo), a Kaggle user based in Germany. Tomigelo is a gold-level contributor to Kaggle discussion boards, as well as a bronze-medal contributor to kernels and a contender in machine learning competitions.
 
 ### What or who is our data about?
 
-Our data is about the audio features and popularity ratings of 130,663 different Spotify tracks. These tracks are collected from the period up to April of 2019, as can be seen through the release dates of the songs listed. The data included reflects data spanning all users of Spotify worldwide.
+Our data is about the audio features and popularity ratings of 130,663 different Spotify tracks. These tracks are collected from the period **up to April of 2019**, as can be seen through the release dates of the songs listed. The data included reflects data spanning all users of Spotify worldwide.
 
 ### How many observations (rows) does our data entail?
 
-The dataset contains 130,663 different observations (rows); each row is for a different Spotify track.
+The dataset contains **130,663** different observations (rows); each row is for a different Spotify track.
 
 ### How many features (columns) are captured by our data?
 
 Our data captures **17** different features:
-- Artist name (e.g. Snow Patrol)
-- Track ID (e.g. 2RM4jf1Xa9zPgMGRDiht8O)
-- Track name (e.g. Heal Me)
-- Acousticness (0-1 scale of whether the track is acoustic)
-- Danceability (0-1 scale of how suitable a track is for dancing)
-- Duration (In milliseconds)
-- Energy (0-1 scale of perceptual intensity and activity)
-- Instrumentalness (0-1 scale representing instrumental : vocal ratio)
-- Key (e.g. 0 = C, 1 = C#, 2 = D, etc.)
-- Liveness (0-1 scale of audience presence)
-- Loudness (-60 to 0 decibels measure of loudness)
-- Mode (0 = Minor, 1 = Major)
-- Speechiness (0-1 scale of presence of words in a track)
-- Tempo (beats per minute)
-- Time Signature (Beats in each measure)
-- Valence (0-1 scale of the positivity of a track)
-- Popularity (0-100 scale of a song's popularity)
+- **Artist name** (e.g. Snow Patrol)
+- **Track ID** (e.g. 2RM4jf1Xa9zPgMGRDiht8O)
+- **Track name** (e.g. Heal Me)
+- **Acousticness** (0-1 scale of whether the track is acoustic)
+- **Danceability** (0-1 scale of how suitable a track is for dancing)
+- **Duration** (In milliseconds)
+- **Energy** (0-1 scale of perceptual intensity and activity)
+- **Instrumentalness** (0-1 scale representing instrumental : vocal ratio)
+- **Key** (e.g. 0 = C, 1 = C#, 2 = D, etc.)
+- **Liveness** (0-1 scale of audience presence)
+- **Loudness** (-60 to 0 decibels measure of loudness)
+- **Mode** (0 = Minor, 1 = Major)
+- **Speechiness** (0-1 scale of presence of words in a track)
+- **Tempo** (beats per minute)
+- **Time Signature** (Beats in each measure)
+- **Valence** (0-1 scale of the positivity of a track)
+- **Popularity** (0-100 scale of a song's popularity)
 
 ### What questions from above can we answer using our data?
 
