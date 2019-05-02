@@ -25,15 +25,15 @@ Using data scraped directly off of its own web API, Spotify's team created [Spot
 
 Since our project revolves around the idea of "popularity" in the world of music, our biggest question we hope to answer is: _Which characteristic of a song is the best predictor of the song's popularity?_  
 
->We could answer this by conducting a regression analysis for all combinations of popularity and a song feature, and then compare their R-square values against one another.
+   We could answer this by conducting a regression analysis for all combinations of popularity and a song feature, and then compare their R-square values against one another.
 
 From that, we hope to then broaden our scope and answer along the same vein: _How does each of the individual observable characteristics affect a song's popularity?_
 
->Looking at the coefficient from the regression analyses, we could determine each individual characteristic's effect on the song's popularity.
+    Looking at the coefficient from the regression analyses, we could determine each individual characteristic's effect on the song's popularity.
 
 Finally, we would like to deviate slightly from the focus on popularity, by evaluating the relationship between different song characteristics that might somehow influence one another. For instance, a question of this nature might be: _How does tempo affect the danceability of a song?_
 
->To check for relationships such as this one, we could just run an analysis comparing two factors outside of popularity, plotting them against one another. For instance, in this case, we would plot the tempo (in beats per minute) of the song against its danceability rating.
+    To check for relationships such as this one, we could just run an analysis comparing two factors outside of popularity, plotting them against one another. For instance, in this case, we would plot the tempo (in beats per minute) of the song against its danceability rating.
 
 Branching out from there, of course, there are countless tangential questions that can be answered through analysis of our data. For instance:
 - _By how much does an artist's popularity inflate the popularity of his or her songs?_
