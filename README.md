@@ -7,7 +7,7 @@
 ### Why are we interested in this domain?
 
 _“Music is a language that doesn’t speak in particular words. It speaks in emotions, and if it’s in the bones, it’s in the bones.”_
-― Keith Richards, Singer and Songwriter for the Rolling Stones
+/n ― Keith Richards, Singer and Songwriter for the Rolling Stones
 
 According to [Dr. Michelle Millis Chapel](https://michellechappel.com/), a former University of California psychology professor who later turned to a career in music, scientists have discovered [fifteen mental and emotional benefits](https://www.lifehack.org/317747/scientists-find-15-amazing-benefits-listening-music) (and counting) of listening to music. Spanning from stress relief to elevated physical and mental performance across several metrics, the benefits of such an easily accessible commodity are endless. It's no wonder that we make it such a big part of our lives, plugging it in whenever we need a pick-me-up. Music makes us feel **good**.
 
@@ -29,12 +29,12 @@ From that, we hope to then broaden our scope and answer along the same vein: _Ho
 
 Finally, we would like to deviate slightly from the focus on popularity, by evaluating the relationship between different song characteristics that might somehow influence one another. For instance, a question of this nature might be: _How does tempo affect the danceability of a song?_
 
-Branching out from there, of course, there are countless tangential questions that can find answers through analysis of our data. For instance:
+Branching out from there, of course, there are countless tangential questions that can be answered through analysis of our data. For instance:
 - _By how much does an artist's popularity inflate the popularity of his or her songs?_
 - _Are certain words in song-titles correlated to higher popularity?_
 - _If we were to create our own song, what would be our formula?_
 
-Overall, we hope that the answers to our questions will give us a better idea of _how_ music appeals to our minds.
+Hopefully, conducting a regression analysis can help to determine answers to all of these questions. By comparing the R-square values for each variable's relationship with popularity, we can rank their correlations and determine which ones serve as the best predictors. Overall, we hope that the answers to our questions will give us a better idea of _how_ music appeals to our minds.
 
 ## Data: Origins and Explanations
 
