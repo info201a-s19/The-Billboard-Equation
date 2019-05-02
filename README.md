@@ -16,13 +16,10 @@ Yet not all music is created equal, and listeners everywhere carefully cater the
 ### What are other examples of data driven projects related to this domain?
 
 Using a subset of the free-to-use Million Song Dataset (MSD) available online, as made available online by the UCI Machine Learning team, Kaggle user Vinay Shanbhag built a [model](https://www.kaggle.com/vinayshanbhag/predict-release-timeframe-from-audio-features) for predicting a song's release year based on features within the music. His project was based upon the underlying theory that music has evolved significantly with time, changing in its nature with every generation.
-(Reference to project: https://www.kaggle.com/vinayshanbhag/predict-release-timeframe-from-audio-features)
 
 Using data collected from the National Endowment of the Arts, the Bureau of Labor Statistics, and the U.S. Bureau of Economic Analysis, online real-estate broker Movoto developed an [interactive map](https://www.spin.com/2014/04/interactive-all-american-music-map-by-genre/) depicting American music tastes by state. This project can be helpful in gaining a better understanding of demographic differences by geography, since different areas are shown to prefer different types of music.
-(Reference to project: https://www.spin.com/2014/04/interactive-all-american-music-map-by-genre/)
 
 Using data scraped directly off of its own web API, Spotify's team created [Spotify.me](https://spotify.me/en) in order to give its users insight as to their listening habits. Leveraging the data they collect from running their product, Spotify also launched Spotify for Brands, which uses data from its users in order to help businesses conduct analyses on consumer behavior and patterns. This is a great example of how data can be used to satisfy simple curiosity, since everyone is (at least to some degree) interested in knowing more about themselves.
-(Reference to project: https://spotify.me/en)
 
 ### What data-driven questions does our project aim to answer?
 
