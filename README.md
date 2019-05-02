@@ -6,8 +6,8 @@
 
 ### Why are we interested in this domain?
 
-_“Music is a language that doesn’t speak in particular words. It speaks in emotions, and if it’s in the bones, it’s in the bones.”_
-/n ― Keith Richards, Singer and Songwriter for the Rolling Stones
+_“Music is a language that doesn’t speak in particular words. It speaks in emotions, and if it’s in the bones, it’s in the bones.”_  
+― Keith Richards, Singer and Songwriter for the Rolling Stones
 
 According to [Dr. Michelle Millis Chapel](https://michellechappel.com/), a former University of California psychology professor who later turned to a career in music, scientists have discovered [fifteen mental and emotional benefits](https://www.lifehack.org/317747/scientists-find-15-amazing-benefits-listening-music) (and counting) of listening to music. Spanning from stress relief to elevated physical and mental performance across several metrics, the benefits of such an easily accessible commodity are endless. It's no wonder that we make it such a big part of our lives, plugging it in whenever we need a pick-me-up. Music makes us feel **good**.
 
