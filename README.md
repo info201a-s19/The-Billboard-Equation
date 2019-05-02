@@ -19,7 +19,7 @@ Using a subset of the free-to-use Million Song Dataset (MSD) available online, a
 
 Using data collected from the National Endowment of the Arts, the Bureau of Labor Statistics, and the U.S. Bureau of Economic Analysis, online real-estate broker Movoto developed an [interactive map](https://www.spin.com/2014/04/interactive-all-american-music-map-by-genre/) depicting American music tastes by state. This project can be helpful in gaining a better understanding of demographic differences by geography, since different areas are shown to prefer different types of music.
 
-Using data scraped directly off of its own web API, Spotify's team created [Spotify.me](spotify.me) in order to give its users insight as to their listening habits. Leveraging the data they collect from running their product, Spotify also launched Spotify for Brands, which uses data from its users in order to help businesses conduct analyses on consumer behavior and patterns. This is a great example of how data can be used to satisfy simple curiosity, since everyone is (at least to some degree) interested in knowing more about themselves.
+Using data scraped directly off of its own web API, Spotify's team created [Spotify.me](https://spotify.me/en) in order to give its users insight as to their listening habits. Leveraging the data they collect from running their product, Spotify also launched Spotify for Brands, which uses data from its users in order to help businesses conduct analyses on consumer behavior and patterns. This is a great example of how data can be used to satisfy simple curiosity, since everyone is (at least to some degree) interested in knowing more about themselves.
 
 ### What data-driven questions does our project aim to answer?
 
