@@ -85,7 +85,7 @@ Our data captures **17** different features:
 
 ### What questions from above can we answer using our data?
 
-By using a linear regression analysis, we can use our data to determine **the correlation between each individual characteristic and the song's popularity**. To demonstrate this to the user, we can use an individual scatterplot for each song characteristic as the x-axis, setting the y-axis in each as the song's popularity.
+By using a regression analysis, we can use our data to determine **the correlation between each individual characteristic and the song's popularity**. To demonstrate this to the user, we can use an individual scatterplot for each song characteristic as the x-axis, setting the y-axis in each as the song's popularity.
 
 From looking at all of the scatterplots together, our data will then help us narrow down **which of the characteristics is the main driver behind the song's popularity**. By creating an additional plot and table for a multiple regression analysis of the data, we will be able to confirm the best predictor for song popularity, which would answer our main question.
 
