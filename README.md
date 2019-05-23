@@ -11,7 +11,7 @@
 
 According to [Dr. Michelle Millis Chapel](https://michellechappel.com/), a former University of California psychology professor who later turned to a career in music, scientists have discovered [fifteen mental and emotional benefits](https://www.lifehack.org/317747/scientists-find-15-amazing-benefits-listening-music) (and counting) of listening to music. Spanning from stress relief to elevated physical and mental performance across several metrics, the benefits of such an easily accessible commodity are endless. It's no wonder that we make it such a big part of our lives, plugging it in whenever we need a pick-me-up. Music makes us feel **good**.
 
-Yet not all music is created equal, and listeners everywhere carefully cater their playlists to personal preferences. As passionate Spotify users with a shared love for music, our group hopes to use data and information to better understand how songs distinguish themselves and rise to the top within such a competitive space. Tired of trying to distance ourselves from the "overplayed" and the "overrated", we instead wish to explain the bits and pieces that bring a song to such a coveted status. In doing so, we hope that we might unearth insights that can speak to our psyche, helping us to better understand how music exploits varying facets of the human condition.
+Yet not all music is created equal, and listeners everywhere carefully cater their playlists to personal preferences. As passionate Spotify users with a shared love for music, our group hopes to use data and information to better understand how songs distinguish themselves and rise to the top within such a competitive space. Tired of trying to distance ourselves from the "overplayed" and the "overrated", we instead wish to explain the bits and pieces that bring a song to such a coveted status. In doing so, we hope that we might unearth insights that can speak to our psyche, helping us to better understand how music exploits various facets of the human condition.
 
 ### What are other examples of data driven projects related to this domain?
 
@@ -19,26 +19,20 @@ Using a subset of the free-to-use Million Song Dataset (MSD) available online, a
 
 Using data collected from the National Endowment of the Arts, the Bureau of Labor Statistics, and the U.S. Bureau of Economic Analysis, online real-estate broker Movoto developed an [interactive map](https://www.spin.com/2014/04/interactive-all-american-music-map-by-genre/) depicting American music tastes by state. This project can be helpful in gaining a better understanding of demographic differences by geography, since different areas are shown to prefer different types of music.
 
-Using data scraped directly off of its own web API, Spotify's team created [Spotify.me](spotify.me) in order to give its users insight as to their listening habits. Leveraging the data they collect from running their product, Spotify also launched Spotify for Brands, which uses data from its users in order to help businesses conduct analyses on consumer behavior and patterns. This is a great example of how data can be used to satisfy simple curiosity, since everyone is (at least to some degree) interested in knowing more about themselves.
+Using data scraped directly off of its own web API, Spotify's team created [Spotify.me](https://spotify.me/en) in order to give its users insight as to their listening habits. Leveraging the data they collect from running their product, Spotify also launched Spotify for Brands, which uses data from its users in order to help businesses conduct analyses on consumer behavior and patterns. This is a great example of how data can be used to satisfy simple curiosity, since everyone is (at least to some degree) interested in knowing more about themselves.
 
 ### What data-driven questions does our project aim to answer?
 
-Since our project revolves around the idea of "popularity" in the world of music, our biggest question we hope to answer is: _Which characteristic of a song is the best predictor of the song's popularity?_  
+Since our project revolves around the idea of "popularity" in the world of music, our biggest question we hope to answer is: **_Which characteristic of a song is the best predictor of the song's popularity?_** We could answer this by conducting a regression analysis for all combinations of popularity and a song feature, and then comparing their R-square values against one another.
 
->We could answer this by conducting a regression analysis for all combinations of popularity and a song feature, and then compare their R-square values against one another.
+From that, we hope to then broaden our scope and answer along the same vein: **_How does each of the individual observable characteristics affect a song's popularity?_** Looking at the coefficient from the regression analyses, we could determine each individual characteristic's effect on the song's popularity.
 
-From that, we hope to then broaden our scope and answer along the same vein: _How does each of the individual observable characteristics affect a song's popularity?_
-
->Looking at the coefficient from the regression analyses, we could determine each individual characteristic's effect on the song's popularity.
-
-Finally, we would like to deviate slightly from the focus on popularity, by evaluating the relationship between different song characteristics that might somehow influence one another. For instance, a question of this nature might be: _How does tempo affect the danceability of a song?_
-
->To check for relationships such as this one, we could just run an analysis comparing two factors outside of popularity, plotting them against one another. For instance, in this case, we would plot the tempo (in beats per minute) of the song against its danceability rating.
+Finally, we would like to deviate slightly from the focus on popularity, by evaluating the relationship between different song characteristics that might somehow influence one another. For instance, a question of this nature might be: **_How does tempo affect the danceability of a song?_** To check for relationships such as this one, we could just run an analysis comparing two factors outside of popularity, plotting them against one another. For instance, in this case, we would plot the tempo (in beats per minute) of the song against its danceability rating.
 
 Branching out from there, of course, there are countless tangential questions that can be answered through analysis of our data. For instance:
-- _By how much does an artist's popularity inflate the popularity of his or her songs?_
-- _Are certain words in song-titles correlated to higher popularity?_
-- _If we were to create our own song, what would be our formula?_
+- **_By how much does an artist's popularity inflate the popularity of his or her songs?_**
+- **_Are certain words in song-titles correlated to higher popularity?_**
+- **_If we were to create our own song, what would be our formula?_**
 
 Overall, we hope that the answers to our questions will give us a better idea of _how_ music appeals to our minds.
 
