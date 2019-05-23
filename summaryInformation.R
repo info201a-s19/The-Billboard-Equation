@@ -4,8 +4,9 @@ information <- read.csv("csvFiles/SpotifyAudioFeaturesApril2019.csv")
 
 
 summary_info <- information %>% 
-  select(artist_name, track_name, energy, tempo, valence, popularity, speechiness) %>% 
-  filter(popularity != 0, speechiness < 0.66)
+  select(artist_name, track_name, energy, tempo, valence, popularity, speechiness, key, mode) %>% 
+  filter(popularity != 0, speechiness < 0.66, key != -1) %>% 
+  mutate(paste0(key, " ", mode))
 
   
 get_summary_info <- function(dataset) {
@@ -28,11 +29,10 @@ get_summary_info <- function(dataset) {
 get_summary_info(summary_info)
 
 
-
-filtering_doubles <- function(dataset) {
-  f <- data.frame()
-  f <- duplicated(dataset$artist_name)
-  return(f)
-}
+##This isnt right i dont think
+ filtering_doubles <- function(dataset) {
+   f <- filter(dataset, duplicated(dataset$artist_name), duplicated(dataset$artist_name))
+   return(f)
+ }
 
 filtering_doubles(summary_info)
