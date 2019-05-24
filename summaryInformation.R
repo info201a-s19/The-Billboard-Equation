@@ -3,13 +3,11 @@ library("dplyr")
 # Load csv file
 information <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
 
-
-
 # Filter undesired information such as podcasts and create new variable -- Key and Mode
 filtered_info <- information %>% 
   select(artist_name, track_name, energy, tempo, valence, popularity, speechiness, key, mode) %>% 
   filter(popularity != 0, speechiness < 0.66, key != -1) %>% 
-  mutate(paste0(key, mode))
+  mutate(key_and_mode = paste0(key, " ", mode))
 
 # Filter doubled songs
 filtered_info <- filtered_info %>%
@@ -31,21 +29,25 @@ Key.Mode.Freq <- data.frame("Key and Mode" = data$`paste0(key, mode)`,
                             "Number of Songs" = data$freq)
 
 ### ignore below for now
+# Get summary information about the dataset
 get_summary_info <- function(dataset) {
     ret <- list()
-    ret$size <- nrow(dataset)
     
-    ret$energyRegression <- lm(dataset$energy ~ dataset$popularity, data = dataset)
-    ret$energyRegression <- summary(ret$energyRegression)$r.squared
+    ret$number_of_songs <- nrow(dataset)
     
-    ret$tempoRegression  <- lm(dataset$tempo ~ dataset$popularity, data = dataset)
-    ret$tempoRegression <- summary(ret$tempoRegression)$r.squared
+    ret$number_of_unique_artists <- length(unique(dataset$artist_name))
     
-    ret$valenceRegression <- lm(dataset$valence ~ dataset$popularity, data = dataset)
-    ret$valenceRegression <- summary(ret$valenceRegression)$r.squared
+    ret$mean_popularity <- mean(dataset$popularity)
     
-    ret$meanPopularity <- mean(dataset$popularity)
+    ret$lower_quartile  <- quantile(dataset$popularity, 0.25)
+    
+    ret$upper_quartile  <- quantile(dataset$popularity, 0.75)
+
     return (ret)
 } 
 
 get_summary_info(summary_info)
+
+doubles_filtered <- summary_info %>%
+  distinct(artist_name, track_name, .keep_all = TRUE)
+
