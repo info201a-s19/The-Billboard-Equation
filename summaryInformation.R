@@ -6,13 +6,10 @@ information <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
 
 ## A function that calculates summary information to be included in your report
 # Filter undesired information such as podcasts
-reduced_info <- information %>%
+filtered_info <- information %>%
   select(artist_name, track_name, energy, tempo, valence,
          popularity, speechiness, key, mode) %>%
-  filter(popularity != 0, speechiness < 0.66, key != -1)
-
-# Filter doubled songs
-filtered_info <- reduced_info %>%
+  filter(popularity != 0, speechiness < 0.66, key != -1) %>%
   distinct(artist_name, track_name, .keep_all = TRUE)
 
 # A function that summarizes information of the dataset 
