@@ -2,7 +2,7 @@ library("dplyr")
 library("lintr")
 
 # Load csv file
-information <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
+information <- read.csv("/The-Billboard_Equation/data/SpotifyAudioFeaturesApril2019.csv")
 
 ## A function that calculates summary information to be included in your report
 # Filter undesired information such as podcasts
