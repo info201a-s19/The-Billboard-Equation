@@ -1,17 +1,26 @@
 library("dplyr")
 library("lintr")
 
-# Load csv file
-information <- read.csv("/The-Billboard_Equation/data/SpotifyAudioFeaturesApril2019.csv")
+information <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
 
-## A function that calculates summary information to be included in your report
-# Filter undesired information such as podcasts
+# Actual filtered info in case function doesn't work
 filtered_info <- information %>%
   select(artist_name, track_name, energy, tempo, valence,
          popularity, speechiness, key, mode) %>%
   filter(popularity != 0, speechiness < 0.66, key != -1) %>%
   distinct(artist_name, track_name, .keep_all = TRUE)
+filtered_info
 
+# Function for filtering the info
+filter_info <- function(dataframe){
+  filtered_info <- dataframe %>%
+    select(artist_name, track_name, energy, tempo, valence,
+           popularity, speechiness, key, mode) %>%
+    filter(popularity != 0, speechiness < 0.66, key != -1) %>%
+    distinct(artist_name, track_name, .keep_all = TRUE)
+  filtered_info
+}
+  
 # A function that summarizes information of the dataset 
 get_summary_info <- function(dataset) {
   summary <- list()
@@ -22,9 +31,6 @@ get_summary_info <- function(dataset) {
   summary$upper_quartile <- quantile(dataset$popularity, 0.75)
   return (summary)
 }
-
-# Apply function to data
-summary_information <- get_summary_info(filtered_info)
 
 # A function that calculates summary information about the key-mode combinations and frequency
 # Create new variable -- Key and Mode
@@ -59,6 +65,3 @@ get_grouped_info <- function(dataset) {
   # Return desired data
   return(Key_Mode_Freq)
 }
-
-# Apply function to data 
-Key.Mode.Freq <- get_grouped_info(filtered_info)

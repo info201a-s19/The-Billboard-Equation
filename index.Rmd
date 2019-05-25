@@ -8,44 +8,58 @@ output: html_document
 ```{r setup, echo = FALSE, message = FALSE, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(knitr)
-source("scripts/summaryInformation.R")
-```
+source("summaryInformation.R")
+source("tempoVersusPopularity.R")
 
-# Project Rundown 
+```  
+
+# The Billboard Equation
+_________________
+
+## Project Rundown 
+
+
 
 ## Summary Information
 
 
-```{r cars}
-summary(cars)
+```{r echo = FALSE}
+summary_information <- get_summary_info(filtered_info)
+
 ```
 
 ## Key-Mode Pairings Summary Table
-```{r cars}
-summary(cars)
+```{r echo = FALSE}
+# Apply function to data to get the frequeuncy of key-mode pairings
+key_mode_freq <- get_grouped_info(filtered_info)
+
 ```
 
 
 ## Key-Mode Pairings vs. Popularity Graph
-```{r cars}
-summary(cars)
+```{r echo = FALSE}
+
 ```
 
 ## Tempo vs. Popularity
 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+```{r echo = FALSE}
+# Apply function to data
+filtered_info$tempo_category <- cat_tempo(filtered_info)
 
-## Tempo vs. Popularity
-```{r cars}
-summary(cars)
+# Apply function to data
+group_tempo <- get_tempo_info(filtered_info)
+
+# Construct a plot to present the summarized data
+ggplot(group_tempo, aes(x = tempo_category, y = avg_popularity, group = 1)) +
+  geom_line() +
+  geom_point()
 ```
 
 
 ## Artists vs. Average Popularity
-```{r cars}
-summary(cars)
+```{r echo = FALSE}
+
 ```
 
