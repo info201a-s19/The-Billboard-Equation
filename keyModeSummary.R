@@ -34,5 +34,5 @@ get_grouped_info <- function(dataset) {
 }
 
 create_table <- function(data){
-  kable(key_mode_freq)
+  kable(Key_Mode_Freq)
 }
