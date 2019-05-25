@@ -15,6 +15,7 @@ get_grouped_artists <- function(dataset) {
   return(grouped_artists)
 }
 
+<<<<<<< HEAD
 # Get Pie chart
 pie_chart <- function(dataset_artist) {
   ggplot(dataset_artist, aes(x = "", y = songs, fill = artist_name)) +
@@ -23,3 +24,5 @@ pie_chart <- function(dataset_artist) {
   scale_fill_brewer(palette = "Dark2") +
   theme(axis.text.x = element_blank())
 }
+=======
+>>>>>>> 207d6c03c64693b214d7823fb54cc780c73abba9
