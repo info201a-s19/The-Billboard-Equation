@@ -30,12 +30,6 @@ get_summary_info <- function(dataset) {
   summary$lower_quartile <- quantile(dataset$popularity, 0.25)
   summary$upper_quartile <- quantile(dataset$popularity, 0.75)
   return (summary)
-<<<<<<< HEAD
 }
 
-# A function that calculates summary information about the key-mode combinations and frequency
-# Create new variable -- Key and Mode
 
-=======
-}
->>>>>>> f7ceeecc81bed0c8a1c9ab02d50ec166cac3f826

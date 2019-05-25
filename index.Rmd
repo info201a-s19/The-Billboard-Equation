@@ -66,7 +66,9 @@ key_mode_popularity_grapher(filtered_info)
 
 ```  
 
-Whereas the above table describes key-mode pairings in terms of their frequency of occurrence, the key-mode pairings graph here instead shows which pairings have the highest _average_ popularity versus which ones have the lowest. From the graph, it can be seen that **C# Minor** has the highest average popularity score, while **D# Major** has the lowest average popularity score. 
+Whereas the above table describes key-mode pairings in terms of their frequency of occurrence, the key-mode pairings graph here instead shows which pairings have the highest _average_ popularity versus which ones have the lowest. From the graph, it can be seen that **C# Minor** has the highest average popularity score, while **D# Major** has the lowest average popularity score.  
+
+For this part of our analysis, we felt that we should organize the bars in order of their frequency from high to low, since there are 24 different bars and it might otherwise be hard to see differences in bar length when two bars are very far from each other on the graph. This way, it is very intuitive and obvious which ones bars are longer.
 
 ## Tempo vs. Popularity
 
@@ -99,5 +101,5 @@ grouped_artist <- get_grouped_artists(filtered_info)
   theme(axis.text.x = element_blank())
 ```  
 
-Finally, we were curious about 
+Finally, we were curious about the popularity of artists at the very top of the chart, and which artists with high average popularity have the most songs in their name. To do this, we used a pie chart, since a pie chart would best show the fraction of a total that a certain artist controls. In order to only focus on the artists we were interested in, we filtered the list down to only artists with an average song popularity above 97. Even though it might seem like a huge cut, we felt that it makes sense, since 99% of music streaming is done on 10% of actual available songs, according to some [sources](https://www.digitalmusicnews.com/2018/02/14/spotify-apple-music-top-songs/).
 
