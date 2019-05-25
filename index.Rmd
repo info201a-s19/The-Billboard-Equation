@@ -18,30 +18,52 @@ _________________
 
 ## Project Rundown 
 
-Every year, thousands of music tracks are released on Spotify's platform, giving users free access to stream them anywhere and anytime.
+Every year, thousands of music tracks are released on Spotify's platform, giving users free access to stream them anywhere and anytime. The majority of these tracks, however, are played very few times before fading into obscurity within the platform's infinitely expanding collection. Some songs, on the other hand, quickly rise to fame and see the popularity of their songs skyrocket. What makes their music so much better than the thousands of _other_ tracks waiting to be discovered?
+
+In conducting this analysis of the music industry, our group uses data pulled straight from Spotify's web API in order to determine what factors make a song more likely to become popular. The original dataset contains **17** different columns of information, but since some of the columns were too arbitrary to be related to popularity in a causal relationship, we filtered it down to **10** columns:  
+  
+- **Artist name** (e.g. Justin Bieber)  
+- **Track name** (e.g. Somebody to Love)  
+- **Energy** (0-1 scale of perceptual intensity and activity)  
+- **Tempo** (beats per minute)  
+- **Valence** (0-1 scale of the positivity of a track)  
+- **Speechiness** (0-1 scale of presence of words in a track)  
+- **Key** (e.g. 0 = C, 1 = C#, 2 = D, etc.)  
+- **Mode** (0 = Minor, 1 = Major)  
+- **Popularity** (0-100 scale of a song's popularity)  
+
+Furthermore, since the mode and the key were very related and similar in nature, we created another variable to store the string representation of their combination. For example, whereas the original data might have the value of "0" for key and the value of "1" for mode, our new variable stores that as a string of variable "C Major". 
+
+Then, since many of the tracks on Spotify are podcasts, long concert performances, or even sounds of rain and thunder, we used a filter of speechiness as well as duration in order to eliminate tracks that are likely not representative of the "music" that Spotify listeners tend to look for. In the rest of this report, all information is calculated based off of our filtered dataset.   
+
+Finally, we also filtered out music that has a popularity rating of 0, since we feel that songs that don't gain an initial foothold within the industry do not really stand a chance in such a competitive space.  
+
 
 ## Summary Information
 
-
 ```{r echo = FALSE}
 summary_information <- get_summary_info(filtered_info)
-
 ```
+
+In order to understand the nature of the data, a good place to begin is an overview of the dataset's aggregate information. The dataset contains **`r summary_information$number_of_songs`** songs. These songs are produced by a total of **`r summary_information$number_of_unique_artists`** unique artists, a testament to Spotify's success in attracting artists to use its services in promoting their work. The average popularity of songs is **`r summary_information$mean_popularity`**, the lower quartile of popularity is **`r summary_information$lower_quartile`**, and the upper quartile is **`r summary_information$upper_quartile`**. This spread of popularity values seems interesting for the purposes of our study, and indicated that the filtered data set contains a good distribution of tracks for analysis.
+
 
 ## Key-Mode Pairings Summary Table
 ```{r echo = FALSE}
 # Apply function to data to get the frequeuncy of key-mode pairings
 key_mode_freq <- get_grouped_info(filtered_info)
+create_table(key_mode_freq)
 
-kable(key_mode_freq)
+```  
 
-```
-
+From this table of key-mode pairings, we can see the frequency of certain key-mode pairings on Spotify. Since we believe that being able to see these pairings is a very unique insight that almost no existing project has attemped, we entered it as a summary table for reference. From the summary table, we can see easily that the **C Major** key is the most commonly used in music, at **9644** different tracks, while the **F Minor** key is the least commonly used, at **1499** different tracks.
 
 ## Key-Mode Pairings vs. Popularity Graph
 ```{r echo = FALSE}
 
-```
+```  
+
+Whereas the above 
 
 ## Tempo vs. Popularity
 

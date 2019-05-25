@@ -202,9 +202,34 @@ $(document).ready(function () {
 <hr />
 <div id="project-rundown" class="section level2">
 <h2>Project Rundown</h2>
+<p>Every year, thousands of music tracks are released on Spotify’s platform, giving users free access to stream them anywhere and anytime. The majority of these tracks, however, are played very few times before fading into obscurity within the platform’s infinitely expanding collection. Some songs, on the other hand, quickly rise to fame and see the popularity of their songs skyrocket. What makes their music so much better than the thousands of <em>other</em> tracks waiting to be discovered?</p>
+<p>In conducting this analysis of the music industry, our group uses data pulled straight from Spotify’s web API in order to determine what factors make a song more likely to become popular. The original dataset contains <strong>17</strong> different columns of information, but since some of the columns were too arbitrary to be related to popularity in a causal relationship, we filtered it down to <strong>10</strong> columns:</p>
+<ul>
+<li><strong>Artist name</strong> (e.g. Justin Bieber)<br />
+</li>
+<li><strong>Track name</strong> (e.g. Somebody to Love)<br />
+</li>
+<li><strong>Energy</strong> (0-1 scale of perceptual intensity and activity)<br />
+</li>
+<li><strong>Tempo</strong> (beats per minute)<br />
+</li>
+<li><strong>Valence</strong> (0-1 scale of the positivity of a track)<br />
+</li>
+<li><strong>Speechiness</strong> (0-1 scale of presence of words in a track)<br />
+</li>
+<li><strong>Key</strong> (e.g. 0 = C, 1 = C#, 2 = D, etc.)<br />
+</li>
+<li><strong>Mode</strong> (0 = Minor, 1 = Major)<br />
+</li>
+<li><strong>Popularity</strong> (0-100 scale of a song’s popularity)</li>
+</ul>
+<p>Furthermore, since the mode and the key were very related and similar in nature, we created another variable to store the string representation of their combination. For example, whereas the original data might have the value of “0” for key and the value of “1” for mode, our new variable stores that as a string of variable “C Major”.</p>
+<p>Then, since many of the tracks on Spotify are podcasts, long concert performances, or even sounds of rain and thunder, we used a filter of speechiness as well as duration in order to eliminate tracks that are likely not representative of the “music” that Spotify listeners tend to look for. In the rest of this report, all information is calculated based off of our filtered dataset.</p>
+<p>Finally, we also filtered out music that has a popularity rating of 0, since we feel that songs that don’t gain an initial foothold within the industry do not really stand a chance in such a competitive space.</p>
 </div>
 <div id="summary-information" class="section level2">
 <h2>Summary Information</h2>
+<p>In order to understand the nature of the data, a good place to begin is an overview of the dataset’s aggregate information. The dataset contains <strong>111116</strong> songs. These songs are produced by a total of <strong>29755</strong> unique artists, a testament to Spotify’s success in attracting artists to use its services in promoting their work. The average popularity of songs is <strong>28.3393031</strong>, the lower quartile of popularity is <strong>14</strong>, and the upper quartile is <strong>41</strong>. This spread of popularity values seems interesting for the purposes of our study, and indicated that the filtered data set contains a good distribution of tracks for analysis.</p>
 </div>
 <div id="key-mode-pairings-summary-table" class="section level2">
 <h2>Key-Mode Pairings Summary Table</h2>
@@ -314,6 +339,7 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
+<p>From this table of key-mode pairings, we can see the frequency of certain key-mode pairings on Spotify. Since we believe that being able to see these pairings is a very unique insight that almost no existing project has attemped, we entered it as a summary table for reference.</p>
 </div>
 <div id="key-mode-pairings-vs.popularity-graph" class="section level2">
 <h2>Key-Mode Pairings vs. Popularity Graph</h2>

@@ -32,3 +32,7 @@ get_grouped_info <- function(dataset) {
   # Return desired data
   return(Key_Mode_Freq)
 }
+
+create_table <- function(data){
+  kable(key_mode_freq)
+}
