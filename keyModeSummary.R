@@ -15,17 +15,17 @@ get_grouped_info <- function(dataset) {
                                         80, 81, 90, 91, 100, 101, 110,
                                         111, 120),
                              labels = c("C Minor", "C Major",
+                                        "C# Minor", "C# Major",
                                         "D Minor", "D Major",
+                                        "D# Minor", "D# Major",
                                         "E Minor", "E Major",
                                         "F Minor", "F Major",
+                                        "F# Minor", "F# Major",
                                         "G Minor", "G Major",
+                                        "G# Minor", "G# Major",
                                         "A Minor", "A Major",
-                                        "B Minor", "B Major",
-                                        "C1 Minor", "C1 Major",
-                                        "D1 Minor", "D1 Major",
-                                        "E1 Minor", "E1 Major",
-                                        "F1 Minor", "F1 Major",
-                                        "G1 Minor", "G1 Major"), right = FALSE)
+                                        "A# Minor", "A# Major",
+                                        "B Minor", "B Major"), right = FALSE)
   # Final Summary for Key and Mode vs Frequency
   Key_Mode_Freq <- data.frame("Key and Mode" = Key_Mode_Categories,
                               "Number of Songs" = grouped_info$freq)
