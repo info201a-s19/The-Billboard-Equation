@@ -11,6 +11,7 @@ library(knitr)
 source("summaryInformation.R")
 source("tempoVersusPopularity.R")
 source("keyModeSummary.R")
+source("popularArtists.R")
 ```  
 
 # The Billboard Equation
@@ -63,7 +64,7 @@ From this table of key-mode pairings, we can see the frequency of certain key-mo
 
 ```  
 
-Whereas the above 
+Whereas the above table describes key-mode pairings in terms of their frequency of occurrence, the key-mode pairings graph here instead shows which pairings have the highest _average_ popularity versus which ones have the lowest. From the graph, it can be seen that 
 
 ## Tempo vs. Popularity
 
@@ -84,6 +85,10 @@ ggplot(group_tempo, aes(x = tempo_category, y = avg_popularity, group = 1)) +
 
 ## Artists vs. Average Popularity
 ```{r echo = FALSE}
-
+pie_chart <- ggplot(grouped_artist, aes(x = "", y = songs, fill = artist_name)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start=0) +
+  scale_fill_brewer(palette = "Dark2") +
+  theme(axis.text.x = element_blank())
 ```
 
