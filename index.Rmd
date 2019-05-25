@@ -52,7 +52,6 @@ In order to understand the nature of the data, a good place to begin is an overv
 
 ## Key-Mode Pairings Summary Table
 ```{r echo = FALSE}
-# Apply function to data to get the frequeuncy of key-mode pairings
 key_mode_freq <- get_grouped_info(filtered_info)
 create_table(key_mode_freq)
 
@@ -94,11 +93,7 @@ From the graph's trend line, it seems that songs of a tempo closer to the middle
 ```{r echo = FALSE}
 
 grouped_artist <- get_grouped_artists(filtered_info)
-  ggplot(grouped_artist, aes(x = "", y = songs, fill = artist_name)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar("y", start=0) +
-  scale_fill_brewer(palette = "Dark2") +
-  theme(axis.text.x = element_blank())
+pie_chart(grouped_artist)
 ```  
 
 Finally, we were curious about the popularity of artists at the very top of the chart, and which artists with high average popularity have the most songs in their name. To do this, we used a pie chart, since a pie chart would best show the fraction of a total that a certain artist controls. In order to only focus on the artists we were interested in, we filtered the list down to only artists with an average song popularity above 97. Even though it might seem like a huge cut, we felt that it makes sense, since 99% of music streaming is done on 10% of actual available songs, according to some [sources](https://www.digitalmusicnews.com/2018/02/14/spotify-apple-music-top-songs/).
