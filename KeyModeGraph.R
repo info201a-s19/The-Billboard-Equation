@@ -31,7 +31,7 @@ key_mode_popularity_grapher <- function(data_frame) {
     ) %>%
     #create a new column by combining the key and mode strings
     mutate(key_and_mode = paste(key, mode))
-  
+
   # Create a new data frame where the instances are key/mode combinations
   # and features are average song popularity, key, and mode
   key_n_mode_popularity <- df_with_key_mode_string %>%
@@ -40,7 +40,7 @@ key_mode_popularity_grapher <- function(data_frame) {
               key = sample(key, 1),
               average_song_popularity = mean(popularity)
               )
-  
+
   # Create a bar chart displaying the average song popularity of each key/mode
   # combination, color coded by mode, ordered by song popularity
   ggplot(data = key_n_mode_popularity) +
