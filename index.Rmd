@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(knitr)
 source("summaryInformation.R")
 source("tempoVersusPopularity.R")
-
+source("keyModeSummary.R")
 ```  
 
 # The Billboard Equation
@@ -18,7 +18,7 @@ _________________
 
 ## Project Rundown 
 
-
+Every year, thousands of music tracks are released on Spotify's platform, giving users free access to stream them anywhere and anytime.
 
 ## Summary Information
 
@@ -32,6 +32,8 @@ summary_information <- get_summary_info(filtered_info)
 ```{r echo = FALSE}
 # Apply function to data to get the frequeuncy of key-mode pairings
 key_mode_freq <- get_grouped_info(filtered_info)
+
+kable(key_mode_freq)
 
 ```
 
