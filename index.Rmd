@@ -12,6 +12,7 @@ source("summaryInformation.R")
 source("tempoVersusPopularity.R")
 source("keyModeSummary.R")
 source("popularArtists.R")
+source("KeyModeGraph.R")
 ```  
 
 # The Billboard Equation
@@ -61,10 +62,11 @@ From this table of key-mode pairings, we can see the frequency of certain key-mo
 
 ## Key-Mode Pairings vs. Popularity Graph
 ```{r echo = FALSE}
+key_mode_popularity_grapher(filtered_info)
 
 ```  
 
-Whereas the above table describes key-mode pairings in terms of their frequency of occurrence, the key-mode pairings graph here instead shows which pairings have the highest _average_ popularity versus which ones have the lowest. From the graph, it can be seen that 
+Whereas the above table describes key-mode pairings in terms of their frequency of occurrence, the key-mode pairings graph here instead shows which pairings have the highest _average_ popularity versus which ones have the lowest. From the graph, it can be seen that **C# Minor** has the highest average popularity score, while **D# Major** has the lowest average popularity score. 
 
 ## Tempo vs. Popularity
 
@@ -80,15 +82,22 @@ group_tempo <- get_tempo_info(filtered_info)
 ggplot(group_tempo, aes(x = tempo_category, y = avg_popularity, group = 1)) +
   geom_line() +
   geom_point()
-```
+```  
 
+Of all of the numeric independent variables available, we felt that the tempo of a song is probably one of the most influential factors, since it has the ability to control a person's mood and how they feel in general. Thus, we chose to use a line graph in order to show the general trend of popularity as the tempo goes from low to high.  
+
+From the graph's trend line, it seems that songs of a tempo closer to the middle are the most popular, while people are a little less attracted to songs on the very slow or fast tempo poles of the data. This makes sense, since songs with a slow tempo can come off as boring or just too slow, while songs with a tempo too fast might be too hard to follow or move to.
 
 ## Artists vs. Average Popularity
 ```{r echo = FALSE}
-pie_chart <- ggplot(grouped_artist, aes(x = "", y = songs, fill = artist_name)) +
+
+grouped_artist <- get_grouped_artists(filtered_info)
+  ggplot(grouped_artist, aes(x = "", y = songs, fill = artist_name)) +
   geom_bar(width = 1, stat = "identity") +
   coord_polar("y", start=0) +
   scale_fill_brewer(palette = "Dark2") +
   theme(axis.text.x = element_blank())
-```
+```  
+
+Finally, we were curious about 
 

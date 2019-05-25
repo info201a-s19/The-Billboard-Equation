@@ -14,3 +14,4 @@ get_grouped_artists <- function(dataset) {
     summarize(songs = n())
   return(grouped_artists)
 }
+

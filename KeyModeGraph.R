@@ -6,7 +6,7 @@ library("dplyr")
 
 key_mode_popularity_grapher <- function(data_frame) {
   # create a new column holding strings of the song's key/mode combination
-  df_with_key_mode_string <- spotify_data %>%
+  df_with_key_mode_string <- data_frame %>%
     # replace the double digit numbers representing keys first so gsub() can
     # differetiate between "11" and "1""2" as well as "12" and "1""2"
     mutate(key = gsub("10", "A#", key),
