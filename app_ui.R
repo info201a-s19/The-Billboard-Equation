@@ -31,6 +31,17 @@ filtered_info$mode <- cut(filtered_info$mode,
 # Group by Both
 filtered_info$key_and_mode <- paste(filtered_info$key, filtered_info$mode)
 
+# Create dataframes of average song popularity by key/mode/both 
+both_df <- filtered_info %>%
+  group_by(key_and_mode) %>%
+  summarize(average_song_popularity = mean(popularity))
+key_df <- filtered_info %>%
+  group_by(key) %>%
+  summarize(average_song_popularity = mean(popularity))
+mode_df <- filtered_info %>%
+  group_by(mode) %>%
+  summarize(average_song_popularity = mean(popularity))
+
 # Select top artists
 top_artists <- filtered_info %>%
   group_by(artist_name) %>%
@@ -202,6 +213,11 @@ ui <- navbarPage(
   titlePanel("Key and Mode vs. Popularity"),
   sidebarLayout(
     sidebarPanel(
+      selectInput(inputId = "combination_average",
+                  label = "View Average Song Popularity By:",
+                  choices = list("key", "mode", "both"),
+                  selected = "key",
+                  multiple = FALSE),
       radioButtons("Combo",
                    label = ("Select Key Mode Combo"),
                    choices = list("C Minor", "C Major",
@@ -219,11 +235,23 @@ ui <- navbarPage(
                    selected = "C Minor")
     ),
     mainPanel(
+      plotOutput("key_mode_bar_graph"),
       dataTableOutput("table"),
-      p("This page of the app contains a function",
-        "for the user to choose a key-mode combination",
-        "the selection of which will prompt a display",
-        "all the songs within the key-mode group.")
+      p("This page of the app contains two functions for",
+        "the user to navigate:"),
+      p("The first is a simple sort based upon the user's",
+        "selection. For example, sorting by", em("key"),
+        "would give groupings named", em("C, C#, D, D#,"),
+        em("etc."), ", while sorting by", em("mode"),
+        "would give groupings of either", em("Minor"),
+        "or", em("Major"), ". A third choice that the user",
+        "can choose is to sort by the combination of the",
+        "two, grouping the data by a key-mode pairing (for",
+        "example", em("C# Minor"), ")."),
+      p("The second function is a choice of key-mode",
+        "combination by the user, the selection of which",
+        "will prompt a display of all the songs within",
+        "that key-mode group.")
     )
   )
 ),

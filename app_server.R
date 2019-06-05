@@ -7,12 +7,35 @@ library("dplyr")
 # ui Server
 server <- function(input, output) {
   # Page 2
+  # Render bar charts comparing average song popularity versus key, mode, or both
+  output$key_mode_bar_graph <- renderPlot({
+    
+    # Create string matching column name using input variable
+    df_name <- paste0(input$combination_average, "_df")
+    bar_data_frame = get(df_name)
+    
+    # Create bar chart
+    ggplot(data = bar_data_frame) +
+      geom_col(
+        mapping = aes(x = reorder(bar_data_frame[[input$combination_average]],
+                                  average_song_popularity),
+                      y = average_song_popularity)
+      ) +
+      coord_flip() +
+      labs (
+        title = "Key, Mode, or Both vs. Popularity",
+        x = input$combination_average,
+        y = "Average Song Popularity"
+      )
+  })
+  
   # Radio Buttons (Page 2)
   Combo <- reactive({
     combo <- filtered_info %>%
       filter(key_and_mode == input$Combo) %>%
       arrange(desc(popularity)) %>%
-      top_n(10)
+      top_n(10) %>%
+      select(artist_name, track_name, key_and_mode, key, mode, popularity)
     return(combo)
     })
   # Construct Table
