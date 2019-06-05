@@ -129,7 +129,7 @@ server <- function(input, output) {
   output$top_songs_by_key_mode <- renderDataTable({
     table <- df_with_key_mode_string %>%
       filter(both == input$combination_top_songs) %>%
-      arrange(-popularity) %>%
+      arrange(desc(popularity)) %>%
       top_n(10) %>%
       select(song)
     

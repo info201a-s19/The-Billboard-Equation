@@ -3,6 +3,7 @@ library("lintr")
 library("shiny")
 library("ggplot2")
 library("dplyr")
+source("app_server.R")
 
 # Load data
 information <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
@@ -141,7 +142,7 @@ ui <- navbarPage(
     mainPanel(
       plotOutput("Pie_Chart"),
       p("This pie chart demonstrates the market share that each",
-        "that each artist remains at the very highest levels of",
+        "that each artist retains at the very highest levels of",
         "popularity, the user can increase or decrease the pool",
         "of artists to include in the pie chart total. It is",
         strong(em("strongly suggested")), "that the user choose",
