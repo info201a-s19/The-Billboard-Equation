@@ -1,0 +1,20 @@
+body {
+  margin: 12;
+  font-family: "Lato", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14;
+  font-weight: 450;
+  line-height: 1.75;
+  color: #212329;
+  text-align: left;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 6;
+  margin-bottom: 12;
+}
+
+img {
+    max-width:100%;
+    height:auto;
+}
