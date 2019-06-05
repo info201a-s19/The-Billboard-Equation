@@ -5,62 +5,9 @@ library("dplyr")
 library("tidyr")
 library("plotly")
 
-# DEFINE UI
+data_frame <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
 
-ui <- navbarPage(
-  tabPanel(
-    "Key and Mode",
-    titlePanel("Key and Mode versus Average Song Popularity"),
-    sidebarLayout(
-      sidebarPanel(
-        selectInput(inputId = "combination_average",
-                    label = "View Average Song Popularity By:",
-                    choices = list("key", "mode", "both"),
-                    selected = "key",
-                    multiple = FALSE
-        ),
-        selectInput(inputId = "combination_top_songs",
-                    label = "View Top 5 Most Popular Songs Sorted By:",
-                    choices = list("C Major",
-                                   "C# Major",
-                                   "D Major",
-                                   "D# Major",
-                                   "E Major",
-                                   "F Major",
-                                   "F# Major",
-                                   "G Major",
-                                   "G# Major",
-                                   "A Major",
-                                   "A# Major",
-                                   "B Major",
-                                   "B# Major",
-                                   "C Minor",
-                                   "C# Minor",
-                                   "D Minor",
-                                   "D# Minor",
-                                   "E Minor",
-                                   "F Minor",
-                                   "F# Minor",
-                                   "G Minor",
-                                   "G# Minor",
-                                   "A Minor",
-                                   "A# Minor",
-                                   "B Minor",
-                                   "B# Minor"),
-                    selected = "C Major",
-                    multiple = FALSE
-        )
-      ),
-      mainPanel(
-        plotlyOutput("key_mode_bar_graph"),
-        dataTableOutput("top_songs_by_key_mode")
-      )
-    )
-  )
-)
-
-
-# WRANGLE DATA (GOES IN SERVER FILE)
+# WRANGLE DATA
 df_with_key_mode_string <- data_frame %>%
   # replace the double digit numbers representing keys first so gsub() can
   # differetiate between "11" and "1""2" as well as "12" and "1""2"
@@ -88,6 +35,50 @@ df_with_key_mode_string <- data_frame %>%
   mutate(both = paste(key, mode)) %>%
   select(artist_name, track_name, both, key, mode, popularity) %>%
   mutate(song = paste(track_name, "by", artist_name))
+
+
+# DEFINE UI
+
+ui <- navbarPage(
+  tabPanel(
+    "Key and Mode",
+    titlePanel("Key and Mode versus Average Song Popularity"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(inputId = "combination_average",
+                    label = "View Average Song Popularity By:",
+                    choices = list("key", "mode", "both"),
+                    selected = "key",
+                    multiple = FALSE
+        ),
+        selectInput(inputId = "combination_top_songs",
+                    label = "View Top 5 Most Popular Songs Sorted By:",
+                    choices = list("C Major", "C Minor",
+                                   "C# Major", "C# Minor",
+                                   "D Major", "D Minor",
+                                   "D# Major", "D# Minor",
+                                   "E Major",  "E Minor",
+                                   "F Major", "F Minor",
+                                   "F# Major", "F# Minor",
+                                   "G Major", "G Minor",
+                                   "G# Major", "G# Minor",
+                                   "A Major", "A Minor",
+                                   "A# Major",  "A# Minor",
+                                   "B Major", "B Minor",
+                                   "B# Major", "B# Minor"
+                                   ),
+                    selected = "C Major",
+                    multiple = FALSE)
+      ),
+      mainPanel(
+        plotlyOutput("key_mode_bar_graph"),
+        dataTableOutput("top_songs_by_key_mode")
+      )
+    )
+  )
+)
+
+
 
 # Create dataframes of average song popularity by key/mode/both 
 both_df <- df_with_key_mode_string %>%
