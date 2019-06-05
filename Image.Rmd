@@ -1,1 +1,18 @@
 ![](./imgs/music.jpg)
+
+## Purpose:
+Our app, **The Billboard Equation**, aims to help users better understand music trends of our generation by highlighting snapshots of the industry as a whole. In addressing these questions, this app uses data pulled from Spotify’s own web API, of which we focused on certain characteristics useful for describing each song: artist name, track name, energy, tempo, valence, ‘speechiness’, key, mode, and popularity.
+Amongst these factors, _popularity_ stood out as the sole dependent/responding variable of interest, whereas the other eight variables were studied as independent/manipulated variables—some categorical and some continuous by nature. Specifically, this app features insights pertaining to three main categories of interest: tempo versus popularity, artist name versus popularity, and key-mode combination versus popularity.
+
+## Effect of Key-Mode Combo on Song Popularity:
+Specifically, in the tab for _tempo versus popularity_, the user can examine the effect that a song’s tempo has on the popularity of that song, which can resolve hypotheses that slower or faster songs are more likely to gain traction within the audience worldwide.
+
+# Effect of Tempo on Song Popularity:
+In the tab for _artist name versus popularity_, the user can study popularity as a function of specific artists, which gives insight into who controls how much of the competitive music industry as of recent. Since we assume most users of our app (although it’s okay if you aren’t!) will recognize most (if not all) of the names that appear within the top of this list, this can help a user see how the most popular of artists rank against one another in this space.
+
+## Artist's Effect on Song Popularity:
+Finally, in the tab for _key-mode combination versus popularity_, the user can view a ranking of the key-mode combinations by average popularity. In addition, the user has the option to view listings of popular songs within each key-mode group, which can help to better understand what that key-mode sounds like through recognition of patterns. 
+
+## Rationale:
+Overall, although this app does not explore every combination of popularity versus an independent variable, it focuses on the ones that we find have the most logical connections. Although relationships could also have been drawn between popularity and variables such as Spotify ID, song duration, energy, and track name, this app avoids pushing forward these relationships, since a lack of logical rationale for such connections might imply false conclusions based in confounding factors inherent within such a nuanced set of datapoints.
+Hopefully, this app helps the user not only to notice the relationship between these factors and a song’s popularity, but also to visualize and see information within certain ranges that the user can input in each tab. 
