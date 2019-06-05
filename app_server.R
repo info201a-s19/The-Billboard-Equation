@@ -55,92 +55,35 @@ server <- function(input, output) {
     return(pie_chart)
   })
   
+  
   # Summary Statistical Analysis
-  
-  #Energy vs. Popularity Linear Regression
-  
-  energy_pop_all <- filtered_info %>% 
-    select(energy, popularity)
-  
-  energy_pop <- energy_pop[sample(nrow(energy_pop), 100, replace = FALSE), ]
-  
-  energy_intercept <- lm(popularity~energy, data = energy_pop)
-  energy_pop_r <- summary(energy_intercept)
-  r2_energy <- energy_pop_r$r.squared
-  my.p_energy <- energy_pop_r$coefficients[2,4]
-  
-  rp_energy <- c('expression', 2)
-  rp_energy[1] <- paste("R2: ", format(r2_energy, digits = 3))
-  rp_energy[2] <- paste("p-value: ", format(my.p_energy, digits = 2))
-  
-  e <- energy_pop$energy
-  e_pop <- energy_pop$popularity
-  energy_correlation <- cor(e, e_pop)
-  
-  
+
+  #Energy vs. Popularity Plot
   output$energy_plot <- renderPlot(
-    ggplot(energy_pop, aes_string(x = energy_pop$energy, 
+    ggplot(energy_pop, aes_string(x = energy_pop$energy,
                                   y = energy_pop$popularity)) +
       geom_point(shape = 1) +
       xlab("Energy") +
       ylab("Popularity") +
-      geom_smooth(method = "lm") 
-    
+      geom_smooth(method = "lm")
+
   )
-  
-  #Tempo vs. Popularity Linear Regression
-  tempo_pop_all <- filtered_info %>%
-    select(tempo, popularity)
-  
-  tempo_pop <- tempo_pop[sample(nrow(tempo_pop), 100, replace = FALSE), ]
-  
-  
-  tempo_intercept <- lm(popularity~tempo, data = tempo_pop)
-  tempo_pop_r <- summary(tempo_intercept)
-  r2_tempo <- tempo_pop_r$adj.r.squared
-  my.p_tempo <- tempo_pop_r$coefficients[2,4]
-  
-  rp_tempo = vector('expression',2)
-  rp_tempo[1] = paste("R2: ", format(r2_tempo , digits = 3))
-  rp_tempo[2] = paste("p-value: ", format(my.p_tempo, digits = 2))
-  
-  t <- tempo_pop$tempo
-  t_pop <- tempo_pop$popularity
-  tempo_correlation <- cor(t, t_pop)
-  
+
+  #Tempo vs. Popularity Plot
   output$tempo_plot <- renderPlot(
-    ggplot(tempo_pop, aes_string(x = tempo_pop$tempo, 
+    ggplot(tempo_pop, aes_string(x = tempo_pop$tempo,
                                  y = tempo_pop$popularity)) +
       geom_point(shape = 1) +
       xlab("Tempo") +
       ylab("Popularity") +
       geom_smooth(method = "lm")
   )
-  
-  
-  #Speech vs. Popularity Linear Regression
-  speech_pop_all <- filtered_info %>%
-    select(speechiness, popularity)
-  
-  
-  speech_pop <- speech_pop[sample(nrow(speech_pop), 100, replace = FALSE), ]
-  
-  
-  speech_intercept <- lm(popularity~speechiness, data = speech_pop)
-  speech_pop_r <- summary(speech_intercept)
-  r2_speech <- speech_pop_r$adj.r.squared
-  my.p_speech <- speech_pop_r$coefficients[2,4]
-  
-  rp_speech = vector('expression',2)
-  rp_speech[1] = paste("R2: ", format(r2_speech , digits = 3))
-  rp_speech[2] = paste("p-value: ", format(my.p_speech, digits = 2))
-  
-  s <- speech_pop$speechiness
-  s_pop <- speech_pop$popularity
-  speech_correlation <- cor(s, s_pop)
-  
+
+
+
+  #Speech vs. Popularity Plot
   output$speech_plot <- renderPlot(
-    ggplot(speech_pop, aes_string(x = speech_pop$speechiness, 
+    ggplot(speech_pop, aes_string(x = speech_pop$speechiness,
                                   y = speech_pop$popularity)) +
       geom_point(shape = 1) +
       xlab("Speechiness") +
@@ -148,3 +91,4 @@ server <- function(input, output) {
       geom_smooth(method = "lm")
   )
 }
+

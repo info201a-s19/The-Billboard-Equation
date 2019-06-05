@@ -33,6 +33,83 @@ filtered_info$tempo_category <- cut(filtered_info$tempo,
                                     labels = seq(0, 240, by = 10),
                                     right = FALSE)
 
+#Energy vs. Popularity Linear Regression
+
+energy_pop_all <<- filtered_info %>%
+  select(energy, popularity)
+
+#Get a sample of 100 random values
+set.seed(2)
+energy_pop <<- energy_pop_all[sample(nrow(energy_pop_all), 100), ]
+
+#Find R2 and p-values
+energy_intercept <<- lm(popularity~energy, data = energy_pop)
+energy_pop_r <<- summary(energy_intercept)
+r2_energy <<- energy_pop_r$r.squared
+my.p_energy <<- energy_pop_r$coefficients[2,4]
+
+#Show R2 and p-value next to graph
+rp_energy <<- c('expression', 2)
+rp_energy[1] = paste("R2: ", format(r2_energy, digits = 3))
+rp_energy[2] = paste("p-value: ", format(my.p_energy, digits = 2))
+
+#Find correlation
+e <<- energy_pop$energy
+e_pop <<- energy_pop$popularity
+energy_correlation <- cor(e, e_pop)
+
+
+#Tempo vs. Popularity Linear Regression
+tempo_pop_all <- filtered_info %>%
+  select(tempo, popularity)
+
+#Get a sample of 100 random values
+set.seed(14)
+tempo_pop <- tempo_pop_all[sample(nrow(tempo_pop_all), 100), ]
+
+#Find R2 and p-values
+tempo_intercept <- lm(popularity~tempo, data = tempo_pop)
+tempo_pop_r <- summary(tempo_intercept)
+r2_tempo <- tempo_pop_r$adj.r.squared
+my.p_tempo <- tempo_pop_r$coefficients[2,4]
+
+#Show R2 and p-value next to graph
+rp_tempo <- vector('expression',2)
+rp_tempo[1] = paste("R2: ", format(r2_tempo , digits = 3))
+rp_tempo[2] = paste("p-value: ", format(my.p_tempo, digits = 2))
+
+#Find correlation
+tm <- tempo_pop$tempo
+t_pop <- tempo_pop$popularity
+tempo_correlation <- cor(tm, t_pop)
+
+
+#Speech vs. Popularity Linear Regression
+speech_pop_all <- filtered_info %>%
+  select(speechiness, popularity)
+
+#Get a sample of 100 random values
+set.seed(24)
+speech_pop <- speech_pop_all[sample(nrow(speech_pop_all), 100, replace = FALSE), ]
+
+#Find R2 and p-values
+speech_intercept <- lm(popularity~speechiness, data = speech_pop)
+speech_pop_r <- summary(speech_intercept)
+r2_speech <- speech_pop_r$adj.r.squared
+my.p_speech <- speech_pop_r$coefficients[2,4]
+
+#Show R2 and p-value next to graph
+rp_speech <- vector('expression',2)
+rp_speech[1] = paste("R2: ", format(r2_speech , digits = 3))
+rp_speech[2] = paste("p-value: ", format(my.p_speech, digits = 2))
+
+#Find correlation
+s <- speech_pop$speechiness
+s_pop <- speech_pop$popularity
+speech_correlation <- cor(s, s_pop)
+
+
+
 # ui Page
 ui <- navbarPage(
   "The Billboard Equation",
@@ -153,44 +230,44 @@ ui <- navbarPage(
   )
 ),
 
+
   # Page 5
-  tabPanel(
-    ("Summary Takeaways"),
-    ui <- fluidPage(
-      "Summary Takeaways",
-      titlePanel("Plots"),
-      mainPanel(
-        h5("DISCLAIMER: These graphs are only a random sample of the original data, with 100 points shown. The R2 and P values shown will be different than the values of the whole dataset, as this is only a sample. However, the significance of this sample was made to emulate the significance of the whole dataset(e.g. the dataset is not significant, so what is shown by this sample is not significant either). This was done for visualization and analysis purposes."),
-        h3("Energy vs. Popularity Linear Regression"),
-        plotOutput(outputId = "energy_plot"),
-        h4(rp_energy[1]),
-        h4(rp_energy[2]),
-        h4(paste("Correlation: ", energy_correlation)),
-        p("Since the p-value > 0.05, we cannot reject the null hypothesis that the energy of a song does not affect the popularity of the song."),
-        p("There is also a weak positive correlation between the energy and the popularity of a song(when one variable increases, the other increases as well), meaning as the energy of a song increases or decreases, there is a low likelihood of there being a relationship with the popularity of the song."),
-        br(),
-        h3("Tempo vs. Popularity Linear Regression"),
-        plotOutput(outputId = "tempo_plot"),
-        h4(rp_tempo[1]),
-        h4(rp_tempo[2]),
-        h4(paste("Correlation: ", tempo_correlation)),
-        p("Since the p-value < 0.05, we can reject the null hypothesis that the tempo of a song does not affect the popularity of the song."),
-        p("There is also a weak, but stronger than energy, negative correlation between the tempo and the popularity of a song(when one variable increases, the other variable decreases), meaning as the tempo of a song increases or decreases, there is a low likelihood of there being a relationship with the popularity of the song."),
-        br(),
-        h3("Speechiness vs. Popularity Linear Regression"),
-        plotOutput(outputId = "speech_plot"),
-        h4(rp_speech[1]),
-        h4(rp_speech[2]),
-        h4(paste("Correlation: ", speech_correlation)),
-        p("Since the p-value > 0.05, we cannot reject the null hypothesis that the speechiness of a song does not affect the popularity of the song."),
-        p("There is a very weak negative correlation between the speechiness and the popularity of a song(when one variable increases, the other variable decreases), meaning as the speechiness of a song increases or decreases, there is a very low likelihood of there being a relationship with the popularity of the song."),
-        br(),
-        h2("Summary"),
-        p("Overall, there are fairly weak correlations between the tempo, energy, speechiness, and popularity of a song."),
-        p("As for which of the characteristics is the main driver behind the song's popularity, through the analysis of the statistics, we have concluded that", strong(" tempo "),"is one of the main drivers behind the song's popularity.")
-      )
-      
+   tabPanel(
+     ("Summary Takeaways"),
+     ui <- fluidPage(
+       titlePanel("Plots"),
+       mainPanel(
+         h5("DISCLAIMER: These graphs are only a random sample of the original data, with 100 points shown. The R2 and P values shown will be different than the values of the whole dataset, as this is only a sample. However, the significance of this sample was made to emulate the significance of the whole dataset(e.g. the dataset is not significant, so what is shown by this sample is not significant either). This was done for visualization and analysis purposes."),
+         h3("Energy vs. Popularity Linear Regression"),
+         plotOutput(outputId = "energy_plot"),
+         h4(rp_energy[1]),
+         h4(rp_energy[2]),
+         h4(paste("Correlation: ", energy_correlation)),
+         p("Since the p-value > 0.05, we cannot reject the null hypothesis that the energy of a song does not affect the popularity of the song."),
+         p("There is also a very weak positive correlation between the energy and the popularity of a song(when one variable increases, the other increases as well), meaning as the energy of a song increases or decreases, there is a low likelihood of there being a relationship with the popularity of the song."),
+         br(),
+         h3("Tempo vs. Popularity Linear Regression"),
+         plotOutput(outputId = "tempo_plot"),
+         h4(rp_tempo[1]),
+         h4(rp_tempo[2]),
+         h4(paste("Correlation: ", tempo_correlation)),
+         p("Since the p-value < 0.05, we can reject the null hypothesis that the tempo of a song does not affect the popularity of the song."),
+         p("There is also a very weak, but stronger than energy, positive correlation between the tempo and the popularity of a song(when one variable increases, the other variable increases), meaning as the tempo of a song increases or decreases, there is a low likelihood of there being a relationship with the popularity of the song."),
+         br(),
+         h3("Speechiness vs. Popularity Linear Regression"),
+         plotOutput(outputId = "speech_plot"),
+         h4(rp_speech[1]),
+         h4(rp_speech[2]),
+         h4(paste("Correlation: ", speech_correlation)),
+         p("Since the p-value > 0.05, we cannot reject the null hypothesis that the speechiness of a song does not affect the popularity of the song."),
+         p("There is a very weak negative correlation between the speechiness and the popularity of a song(when one variable increases, the other variable decreases), meaning as the speechiness of a song increases or decreases, there is a very low likelihood of there being a relationship with the popularity of the song."),
+         br(),
+         h2("Summary"),
+         p("Overall, there are fairly weak correlations between the tempo, energy, speechiness, and popularity of a song."),
+         p("As for which of the characteristics is the main driver behind the song's popularity, through the analysis of the statistics, we have concluded that", strong(" tempo "),"is one of the main drivers behind the song's popularity.")
+       )
+  
     )
-    
+
   )
 )
