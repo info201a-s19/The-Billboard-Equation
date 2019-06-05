@@ -13,7 +13,6 @@ filtered_info <- information %>%
          popularity, speechiness, key, mode) %>%
   filter(popularity != 0, speechiness < 0.66, key != -1) %>%
   distinct(artist_name, track_name, .keep_all = TRUE)
-filtered_info
 
 # Select top artists
 top_artists <- filtered_info %>%
@@ -41,7 +40,7 @@ filtered_info$tempo_category <- cat_tempo(filtered_info)
 
 # ui Page
 ui <- navbarPage(
-  "Tempo vs. Popularity",
+  "The Billboard Equation",
   tabPanel("Tempo vs. Popularity"),
   sidebarLayout(
     sidebarPanel(h4("Select Artist(s) of Interest"),
@@ -66,7 +65,7 @@ server <- function(input, output) {
       summarize(avg_popularity = mean(popularity))
     return(grouped_tempo)
   })
-  
+
   # Construct Line Graph
   output$line_graph <- renderPlot({
     ggplot(grouped_tempo(), aes(x = tempo_category,
