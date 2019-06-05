@@ -207,10 +207,9 @@ ui <- navbarPage(
         )
       ),
       mainPanel(
-        plotlyOutput("bar_graph"),
-        p("This page of the app contains two functions",
-          "for the user to navigate:"),
-        p("The first is a simple sort based upon the",
+        plotOutput("bar_graph"),
+        p("This page of the app contains a function",
+          "for the user to navigate: a simple sort based upon the",
           "user's selection. For example, sorting by",
           em("key"), "would give groupings named",
           em("C, C#, D, D#, etc."), ", while sorting",
