@@ -36,6 +36,17 @@ df_with_key_mode_string <- data_frame %>%
   select(artist_name, track_name, both, key, mode, popularity) %>%
   mutate(song = paste(track_name, "by", artist_name))
 
+# Create dataframes of average song popularity by key/mode/both 
+both_df <- df_with_key_mode_string %>%
+  group_by(both) %>%
+  summarize(average_song_popularity = mean(popularity))
+key_df <- df_with_key_mode_string %>%
+  group_by(key) %>%
+  summarize(average_song_popularity = mean(popularity))
+mode_df <- df_with_key_mode_string %>%
+  group_by(mode) %>%
+  summarize(average_song_popularity = mean(popularity))
+
 
 # DEFINE UI
 
@@ -50,46 +61,14 @@ ui <- navbarPage(
                     choices = list("key", "mode", "both"),
                     selected = "key",
                     multiple = FALSE
-        ),
-        selectInput(inputId = "combination_top_songs",
-                    label = "View Top 5 Most Popular Songs Sorted By:",
-                    choices = list("C Major", "C Minor",
-                                   "C# Major", "C# Minor",
-                                   "D Major", "D Minor",
-                                   "D# Major", "D# Minor",
-                                   "E Major",  "E Minor",
-                                   "F Major", "F Minor",
-                                   "F# Major", "F# Minor",
-                                   "G Major", "G Minor",
-                                   "G# Major", "G# Minor",
-                                   "A Major", "A Minor",
-                                   "A# Major",  "A# Minor",
-                                   "B Major", "B Minor",
-                                   "B# Major", "B# Minor"
-                                   ),
-                    selected = "C Major",
-                    multiple = FALSE)
+        )
       ),
       mainPanel(
-        plotlyOutput("key_mode_bar_graph"),
-        dataTableOutput("top_songs_by_key_mode")
+        plotlyOutput("key_mode_bar_graph")
       )
     )
   )
 )
-
-
-
-# Create dataframes of average song popularity by key/mode/both 
-both_df <- df_with_key_mode_string %>%
-  group_by(both) %>%
-  summarize(average_song_popularity = mean(popularity))
-key_df <- df_with_key_mode_string %>%
-  group_by(key) %>%
-  summarize(average_song_popularity = mean(popularity))
-mode_df <- df_with_key_mode_string %>%
-  group_by(mode) %>%
-  summarize(average_song_popularity = mean(popularity))
 
 
 # DEFINE SERVER
@@ -114,18 +93,6 @@ server <- function(input, output) {
         x = input$combination_average,
         y = "Average Song Popularity"
       )
-  })
-  
-  # Render Table Showing top ten songs of each key/mode/combination
-  output$top_songs_by_key_mode <- renderDataTable({
-    table <- df_with_key_mode_string %>%
-      filter(both == input$combination_top_songs) %>%
-      arrange(desc(popularity)) %>%
-      top_n(10) %>%
-      select(song)
-    
-    colnames(table) <- paste("Top 10 Songs in", input$combination_top_songs)
-    table
   })
 }
 

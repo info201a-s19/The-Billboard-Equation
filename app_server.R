@@ -3,8 +3,12 @@ library("lintr")
 library("shiny")
 library("ggplot2")
 library("dplyr")
-# Data Wrangling
-df_with_key_mode_string <- data_frame %>%
+
+# Load data
+information <- read.csv("data/SpotifyAudioFeaturesApril2019.csv")
+
+# WRANGLE DATA
+df_with_key_mode_string <- information %>%
   # replace the double digit numbers representing keys first so gsub() can
   # differetiate between "11" and "1""2" as well as "12" and "1""2"
   mutate(key = gsub("10", "A#", key),
@@ -29,53 +33,42 @@ df_with_key_mode_string <- data_frame %>%
   ) %>%
   #create a new column by combining the key and mode strings
   mutate(both = paste(key, mode)) %>%
-  select(artist_name, track_name, both, key, mode, popularity)
+  select(artist_name, track_name, both, key, mode, popularity) %>%
+  mutate(song = paste(track_name, "by", artist_name))
 
+# Create dataframes of average song popularity by key/mode/both 
 both_df <- df_with_key_mode_string %>%
   group_by(both) %>%
   summarize(average_song_popularity = mean(popularity))
-
 key_df <- df_with_key_mode_string %>%
   group_by(key) %>%
   summarize(average_song_popularity = mean(popularity))
-
 mode_df <- df_with_key_mode_string %>%
   group_by(mode) %>%
   summarize(average_song_popularity = mean(popularity))
 
+
 # ui Server
 server <- function(input, output) {
   # Page 2
-  # Render bar charts comparing average song
-  # popularity versus key, mode, or both
-  output$key_and_mode_graph <- renderPlotly({
-    # Create strig matching column name using input variable
-    df_name <- paste0(input$combination, "_df")
-    data_frame <- get(df_name)
+  # Render bar charts comparing average song popularity versus key, mode, or both
+  output$bar_graph <- renderPlotly({
+    # Create string matching column name using input variable
+    df_name <- paste0(input$combination_average, "_df")
+    bar_data_frame = get(df_name)
+    
     # Create bar chart
-    ggplot(data = data_frame) +
+    ggplot(data = bar_data_frame) +
       geom_col(
-        mapping = aes(x = reorder(data_frame[[input$combination]],
-                                  average_song_popularity),
+        mapping = aes(x = reorder(bar_data_frame[[input$combination_average]], average_song_popularity),
                       y = average_song_popularity)
       ) +
       coord_flip() +
       labs (
         title = "Key and Mode Combination versus Average Song Popularity",
-        x = input$combination,
-        y = "Average Song Popularity")
-  })
-  # Table
-  Combo <- reactive({
-    combo <- filtered_info %>%
-      filter(key_and_mode == input$Combo) %>%
-      arrange(desc(popularity)) %>%
-      top_n(10)
-    return(combo)
-  })
-  # Display Table
-  output$table <- renderDataTable({
-    Combo()
+        x = input$combination_average,
+        y = "Average Song Popularity"
+      )
   })
   # Page 3
   # Numeric Filter

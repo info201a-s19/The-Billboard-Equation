@@ -195,34 +195,19 @@ ui <- navbarPage(
   ),
   # Page 2
   tabPanel(
-    ("Key and Mode vs. Popularity"),
+    "Key and Mode",
+    titlePanel("Key and Mode versus Average Song Popularity"),
     sidebarLayout(
       sidebarPanel(
-        selectInput(inputId = "combination",
-                    label = "View Song Popularity By:",
+        selectInput(inputId = "combination_average",
+                    label = "View Average Song Popularity By:",
                     choices = list("key", "mode", "both"),
                     selected = "key",
                     multiple = FALSE
         )
       ),
-      radioButtons("Combo",
-                   label = ("Select Key Mode Combo"),
-                   choices = list("C Minor", "C Major",
-                                  "C# Minor", "C# Major",
-                                  "D Minor", "D Major",
-                                  "D# Minor", "D# Major",
-                                  "E Minor", "E Major",
-                                  "F Minor", "F Major",
-                                  "F# Minor", "F# Major",
-                                  "G Minor", "G Major",
-                                  "G# Minor", "G# Major",
-                                  "A Minor", "A Major",
-                                  "A# Minor", "A# Major",
-                                  "B Minor", "B Major"),
-                   selected = "C Minor"),
       mainPanel(
-        plotlyOutput("key_and_mode_graph"),
-        dataTableOutput("table"),
+        plotlyOutput("bar_graph"),
         p("This page of the app contains two functions",
           "for the user to navigate:"),
         p("The first is a simple sort based upon the",
@@ -234,11 +219,7 @@ ui <- navbarPage(
           ". A third choice that the user can choose",
           "is to sort by the combination of the two,",
           "grouping things by a key-mode pairing (for",
-          "example", em("C# Minor"), ")."),
-        p("The second function is a choice of key-mode",
-          "combination by the user, the selection of",
-          "which will prompt a display of all the songs",
-          "within that key-mode group.")
+          "example", em("C# Minor"), ").")
       )
     )
   ),
@@ -440,3 +421,4 @@ ui <- navbarPage(
     )
   )
 )
+
