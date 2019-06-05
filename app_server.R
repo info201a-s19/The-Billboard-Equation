@@ -30,18 +30,15 @@ server <- function(input, output) {
   })
   
   # Radio Buttons (Page 2)
-  Combo <- reactive({
+  output$table <- renderDataTable({
     combo <- filtered_info %>%
       filter(both == input$Combo) %>%
       arrange(desc(popularity)) %>%
-      top_n(10) %>%
-      select(artist_name, track_name, both, key, mode, popularity)
+      head(10) %>%
+      select(artist_name, track_name, both, popularity)
     return(combo)
     })
-  # Construct Table
-  output$table <- renderDataTable({
-    Combo()
-    })
+
   # Page 3
   # Numeric Filter
   grouped_tempo <- reactive({

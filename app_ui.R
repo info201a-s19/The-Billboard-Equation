@@ -136,8 +136,6 @@ s <- speech_pop$speechiness
 s_pop <- speech_pop$popularity
 speech_correlation <- cor(s, s_pop)
 
-
-
 # ui Page
 ui <- navbarPage(
   "The Billboard Equation",
