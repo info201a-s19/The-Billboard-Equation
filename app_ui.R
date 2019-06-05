@@ -38,6 +38,7 @@ ui <- navbarPage(
   # Overview Page (Page 1)
   tabPanel(
     ("Overview"),
+    includeHTML("Image.html"),
   h3("Purpose:"),
   p("Our app,", strong("The Billboard Equation"),
     ", aims to help users better understand music trends of our",
@@ -70,7 +71,7 @@ ui <- navbarPage(
     "which can resolve hypotheses that slower or faster",
     "songs are more likely to gain traction within the",
     "audience worldwide."),
-  h3("Artists' Effect on Song Popularity:"),
+  h3("Artist's Effect on Song Popularity:"),
   p("Finally, in the tab for", em("artist vs. popularity"),
     ", the user can study popularity as a function of",
     "specific artists, which gives insight into", em("who"),
