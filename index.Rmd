@@ -2,7 +2,10 @@
 title: 'The Billboard Equation: Midpoint Deliverable'
 author: "Adam Bi, Jueqi Liu, Monica Hong, Nancy Han, Sonali Chandra"
 date: "May 24, 2019"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 ```{r setup, echo = FALSE, message = FALSE, include = FALSE}
