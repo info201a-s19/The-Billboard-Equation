@@ -6,21 +6,54 @@ library("tidyr")
 library("plotly")
 
 # DEFINE UI
+
 ui <- navbarPage(
   tabPanel(
     "Key and Mode",
     titlePanel("Key and Mode versus Average Song Popularity"),
     sidebarLayout(
       sidebarPanel(
-        selectInput(inputId = "combination",
-                    label = "View Song Popularity By:",
+        selectInput(inputId = "combination_average",
+                    label = "View Average Song Popularity By:",
                     choices = list("key", "mode", "both"),
                     selected = "key",
+                    multiple = FALSE
+        ),
+        selectInput(inputId = "combination_top_songs",
+                    label = "View Top 5 Most Popular Songs Sorted By:",
+                    choices = list("C Major",
+                                   "C# Major",
+                                   "D Major",
+                                   "D# Major",
+                                   "E Major",
+                                   "F Major",
+                                   "F# Major",
+                                   "G Major",
+                                   "G# Major",
+                                   "A Major",
+                                   "A# Major",
+                                   "B Major",
+                                   "B# Major",
+                                   "C Minor",
+                                   "C# Minor",
+                                   "D Minor",
+                                   "D# Minor",
+                                   "E Minor",
+                                   "F Minor",
+                                   "F# Minor",
+                                   "G Minor",
+                                   "G# Minor",
+                                   "A Minor",
+                                   "A# Minor",
+                                   "B Minor",
+                                   "B# Minor"),
+                    selected = "C Major",
                     multiple = FALSE
         )
       ),
       mainPanel(
-        plotlyOutput("key_and_mode_graph")
+        plotlyOutput("key_mode_bar_graph"),
+        dataTableOutput("top_songs_by_key_mode")
       )
     )
   )
@@ -53,46 +86,55 @@ df_with_key_mode_string <- data_frame %>%
   ) %>%
   #create a new column by combining the key and mode strings
   mutate(both = paste(key, mode)) %>%
-  select(artist_name, track_name, both, key, mode, popularity)
+  select(artist_name, track_name, both, key, mode, popularity) %>%
+  mutate(song = paste(track_name, "by", artist_name))
 
+# Create dataframes of average song popularity by key/mode/both 
 both_df <- df_with_key_mode_string %>%
   group_by(both) %>%
   summarize(average_song_popularity = mean(popularity))
-
 key_df <- df_with_key_mode_string %>%
   group_by(key) %>%
   summarize(average_song_popularity = mean(popularity))
-
 mode_df <- df_with_key_mode_string %>%
   group_by(mode) %>%
   summarize(average_song_popularity = mean(popularity))
 
 
-# Wrangle data to identify top ten songs for each categorgy
-
 # DEFINE SERVER
 server <- function(input, output) {
   
   # Render bar charts comparing average song popularity versus key, mode, or both
-  output$key_and_mode_graph <- renderPlotly({
+  output$key_mode_bar_graph <- renderPlotly({
     
-    # Create strig matching column name using input variable
-    df_name <- paste0(input$combination, "_df")
-    data_frame = get(df_name)
+    # Create string matching column name using input variable
+    df_name <- paste0(input$combination_average, "_df")
+    bar_data_frame = get(df_name)
 
-    
     # Create bar chart
-    ggplot(data = data_frame) +
+    ggplot(data = bar_data_frame) +
       geom_col(
-        mapping = aes(x = reorder(data_frame[[input$combination]], average_song_popularity),
+        mapping = aes(x = reorder(bar_data_frame[[input$combination_average]], average_song_popularity),
                       y = average_song_popularity)
       ) +
       coord_flip() +
       labs (
         title = "Key and Mode Combination versus Average Song Popularity",
-        x = input$combination,
+        x = input$combination_average,
         y = "Average Song Popularity"
       )
+  })
+  
+  # Render Table Showing top ten songs of each key/mode/combination
+  output$top_songs_by_key_mode <- renderDataTable({
+    table <- df_with_key_mode_string %>%
+      filter(both == input$combination_top_songs) %>%
+      arrange(-popularity) %>%
+      top_n(10) %>%
+      select(song)
+    
+    colnames(table) <- paste("Top 10 Songs in", input$combination_top_songs)
+    table
   })
 }
 
