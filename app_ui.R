@@ -288,9 +288,9 @@ ui <- navbarPage(
            the speechiness of a song does not affect the popularity of
            the song."),
          p("There is a very weak negative correlation between the speechiness
-           and the popularity of a song(when one variable increases,
+           and the popularity of a song (when one variable increases,
           the other variable decreases),
-           meaning as the speechiness of a song increases or decreases,
+           meaning that as the speechiness of a song increases or decreases,
           there is a very low
            likelihood of there being a relationship with the
            popularity of the song."),
