@@ -32,10 +32,10 @@ server <- function(input, output) {
   # Radio Buttons (Page 2)
   Combo <- reactive({
     combo <- filtered_info %>%
-      filter(key_and_mode == input$Combo) %>%
+      filter(both == input$Combo) %>%
       arrange(desc(popularity)) %>%
       top_n(10) %>%
-      select(artist_name, track_name, key_and_mode, key, mode, popularity)
+      select(artist_name, track_name, both, key, mode, popularity)
     return(combo)
     })
   # Construct Table

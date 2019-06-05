@@ -29,11 +29,11 @@ filtered_info$mode <- cut(filtered_info$mode,
                           labels = c("Minor", "Major"), right = F)
 
 # Group by Both
-filtered_info$key_and_mode <- paste(filtered_info$key, filtered_info$mode)
+filtered_info$both <- paste(filtered_info$key, filtered_info$mode)
 
 # Create dataframes of average song popularity by key/mode/both 
 both_df <- filtered_info %>%
-  group_by(key_and_mode) %>%
+  group_by(both) %>%
   summarize(average_song_popularity = mean(popularity))
 key_df <- filtered_info %>%
   group_by(key) %>%
@@ -262,6 +262,7 @@ tabPanel(
   sidebarLayout(
     numericInput("Percent",
                  label = h4("Select Percent of Songs"),
+                 h3(em("Please select a number under 100")),
                  value = 100),
     mainPanel(
       plotOutput("line_graph"),
