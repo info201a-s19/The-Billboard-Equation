@@ -1,5 +1,6 @@
 library("dplyr")
 library("lintr")
+library("knitr")
 
 get_grouped_info <- function(dataset) {
   # Group info into key and mode
@@ -34,5 +35,5 @@ get_grouped_info <- function(dataset) {
 }
 
 create_table <- function(data){
-  kable(Key_Mode_Freq)
+  kable(data)
 }

@@ -3,6 +3,7 @@
 # songs with no key detected
 
 library("dplyr")
+library("lintr")
 
 key_mode_popularity_grapher <- function(data_frame) {
   # create a new column holding strings of the song's key/mode combination
