@@ -1,4 +1,4 @@
-# Final Project: The Billboard Equation
+# Final Project: The Billboard Equation (Available at https://monicahong.shinyapps.io/The-Billboard-Equation/)
 
 ![Music banner](./imgs/music.jpg)
 
@@ -92,3 +92,5 @@ From looking at all of the scatterplots together, our data will then help us nar
 Then, by using a scatterplot matrix comparing different song characteristics against one another, we can determine the **relationship between variables such as tempo and danceability**. Since almost all of the columns have been listed in continuous numeric terms, the scatterplot matrix would be appropriate for finding most of the relationships possible.
 
 By looking at the data collected from over 130,000 tracks in the past, we might even lay the groundwork for predicting new songs' rise to fame in the future. By looking at the relationships between these seventeen different  song features, we'll be the ones telling you tomorrow, **"I liked New Town Road before it was cool."**
+
+Visit us at our site: https://monicahong.shinyapps.io/The-Billboard-Equation/
