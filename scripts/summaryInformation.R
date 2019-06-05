@@ -31,3 +31,4 @@ get_summary_info <- function(dataset) {
   summary$upper_quartile <- quantile(dataset$popularity, 0.75)
   return (summary)
 }
+

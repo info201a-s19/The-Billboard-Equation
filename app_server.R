@@ -125,4 +125,37 @@ server <- function(input, output) {
       guides(fill = guide_legend(override.aes = list(color = "black")))
     return(pie_chart)
   })
+
+  # Summary Statistical Analysis
+
+  #Energy vs. Popularity Plot
+  output$energy_plot <- renderPlot(
+    ggplot(energy_pop, aes_string(x = energy_pop$energy,
+                                  y = energy_pop$popularity)) +
+      geom_point(shape = 1) +
+      xlab("Energy") +
+      ylab("Popularity") +
+      geom_smooth(method = "lm")
+
+  )
+
+  #Tempo vs. Popularity Plot
+  output$tempo_plot <- renderPlot(
+    ggplot(tempo_pop, aes_string(x = tempo_pop$tempo,
+                                 y = tempo_pop$popularity)) +
+      geom_point(shape = 1) +
+      xlab("Tempo") +
+      ylab("Popularity") +
+      geom_smooth(method = "lm")
+  )
+
+  #Speech vs. Popularity Plot
+  output$speech_plot <- renderPlot(
+    ggplot(speech_pop, aes_string(x = speech_pop$speechiness,
+                                  y = speech_pop$popularity)) +
+      geom_point(shape = 1) +
+      xlab("Speechiness") +
+      ylab("Popularity") +
+      geom_smooth(method = "lm")
+  )
 }
